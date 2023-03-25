@@ -1,0 +1,38 @@
+<template>
+    <div>
+      <h1>GitSeek</h1>
+      <form @submit.prevent="getRepo">
+        <label>
+          Git Repository URL:
+          <input type="text" v-model="url" required>
+        </label>
+        <button type="submit">Go</button>
+      </form>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        url: '',
+      };
+    },
+    methods: {
+      async getRepo() {
+        const response = await fetch('/api/repo', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            url: this.url,
+          }),
+        });
+        const data = await response.json();
+        console.log(data);
+      },
+    },
+  };
+  </script>
+  
