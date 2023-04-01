@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@syncfusion/ej2-vue-navigations": "^21.1.37"
+  }
+}
