@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  <div>
+  <div class="col-lg-12 control-section tree-default">
+      <div class="tree-control-wrapper">
+          <ejs-treeview id='treeview' :fields='fields'></ejs-treeview>
+      </div>
+  </div>
+  
+  </div>
+  </template>
+  
+  <script>
+  import Vue from "vue";
+  import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
+  import * as dataSource from './default-data.json';
+  
+  Vue.component(TreeViewPlugin);
+  
+  export default Vue.extend({
+      data: function() {
+          return {
+              fields: { dataSource: dataSource.defaultData , id: 'id', text: 'name', child: 'subChild' },
+          };
+      }
+  });
+  </script>
