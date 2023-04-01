@@ -1,4 +1,4 @@
-# gitseek-vue
+# quickstart
 
 > A Vue.js project
 
